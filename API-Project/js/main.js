@@ -8,13 +8,18 @@ async function getData(URL) {
       throw error(response);
     } else {
       const data = await response.json();
+      let allPokemon = data.results;
+
+      const pokemon = document.getElementById("pokemon-search").value;
+      console.log(allPokemon);
+      const specificPokemon = allPokemon.filter((e) => e.name === pokemon);
+
       document.getElementById("api-response").textContent =
-        data.data[0].entry[0].title;
+        data.results[0].name;
       `<div class = 'card>
-          <h2 class = "title">${title}</h2>
-          <img src = "${Image}' alt = "" />
+          <h2 class = "names">${data.results[0].name}</h2>
+          <img src = "${data.results[0].url}' alt = "" />
           </div>`;
-      console.log(data.data[0].entry[0].title);
     }
   } catch (error) {
     console.log(error);
@@ -22,4 +27,7 @@ async function getData(URL) {
       "Sorry I couldn't find that one";
   }
 }
-getData(URL);
+const DOMSelectors = {
+  button: document.getElementById("btn"),
+};
+DOMSelectors.button.addEventListener("click", getData(URL));
