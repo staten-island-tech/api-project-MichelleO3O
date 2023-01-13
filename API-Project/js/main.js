@@ -14,11 +14,12 @@ async function getData(URL) {
           <h2 class = "title">${title}</h2>
           <img src = "${Image}' alt = "" />
           </div>`;
+      console.log(data.data[0].entry[0].title);
     }
-    const data = await response.json();
-    console.log(response);
   } catch (error) {
     console.log(error);
+    document.getElementById("error").textContent =
+      "Sorry I couldn't find that one";
   }
 }
 getData(URL);
