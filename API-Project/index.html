@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
+    <script type="module" src="js/main.js"></script>
   </head>
   <body>
     <div id="app"></div>
@@ -16,18 +16,17 @@
         <div class="black-border"></div>
       </div>
     </div>
-    <form>
+    <form id="search-form" onsubmit="getData(event)">
       <div id="search-box">
         <input class="search-input"
           type="search"
           id="pokemon-search"
           placeholder="Search for Pokémon…" />
-          <button id="btn">Search</button>
-        </div>
-        <div id="error"></div>
-        <div id="api-response"></div>
+          <button type="submit" id="btn">Search</button>
+      </div>
+      <div id="error"></div>
+      <div id="api-response"></div>
       </form>
-      <script type="module" src="js/main.js"></script>
     </body>
     </html>
     

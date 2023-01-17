@@ -1,6 +1,7 @@
 import "../styles/style.css";
-const URL = "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0";
-async function getData(URL) {
+async function getData(event) {
+  event.preventDefault();
+  const URL = "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0";
   try {
     const response = await fetch(URL);
     if (response.status < 200 || response.status > 299) {
@@ -10,8 +11,10 @@ async function getData(URL) {
       const data = await response.json();
       let allPokemon = data.results;
 
-      const pokemon = document.getElementById("pokemon-search").value;
-      console.log(allPokemon);
+      const inputField = document.getElementById("pokemon-search");
+      const pokemon = inputField.value;
+      console.log(pokemon);
+
       const specificPokemon = allPokemon.filter((e) => e.name === pokemon);
 
       document.getElementById("api-response").textContent =
@@ -30,4 +33,6 @@ async function getData(URL) {
 const DOMSelectors = {
   button: document.getElementById("btn"),
 };
-DOMSelectors.button.addEventListener("click", getData(URL));
+document
+  .getElementById("search-form")
+  .addEventListener("submit", getData(event));
