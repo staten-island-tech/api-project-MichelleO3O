@@ -1,7 +1,6 @@
 import "../styles/style.css";
-async function getData(event) {
-  event.preventDefault();
-  const URL = "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0";
+const URL = "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0";
+async function getData(URL) {
   try {
     const response = await fetch(URL);
     if (response.status < 200 || response.status > 299) {
@@ -33,6 +32,5 @@ async function getData(event) {
 const DOMSelectors = {
   button: document.getElementById("btn"),
 };
-document
-  .getElementById("search-form")
-  .addEventListener("submit", getData(event));
+DOMSelectors.button.addEventListener("click", getData(URL));
+// document.getElementById("search-form").addEventListener("submit");
