@@ -32,7 +32,6 @@ async function getData(URL, pokemon) {
           `
           <div class="cards">
           <h2>${element.name}</h2>
-          <p>${element.url}</p>
           <img src="${sprite}" alt="${element.name}">
           </div>
         `

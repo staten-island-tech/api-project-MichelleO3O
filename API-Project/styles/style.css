@@ -50,3 +50,30 @@ button {
   padding: 10px;
   border-radius: 10px;
 }
+
+.cards {
+  background-color: rgb(255, 204, 213);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding: 20px;
+  margin: 25px;
+  width: 500px;
+  height: 500px;
+  border-radius: 60%;
+  border-color: rgb(164, 19, 60);
+}
+
+h2 {
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+img {
+  align-items: center;
+  align-content: center;
+}
