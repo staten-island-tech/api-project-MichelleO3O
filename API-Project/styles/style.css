@@ -52,7 +52,7 @@ button {
 }
 
 .cards {
-  background-color: rgb(255, 204, 213);
+ background = type[typeColors]
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -63,8 +63,7 @@ button {
   margin: 25px;
   width: 500px;
   height: 500px;
-  border-radius: 60%;
-  border-color: rgb(255, 153, 206);
+  /* border-radius: 60%; */
   border: solid 2px;
 }
 

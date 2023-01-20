@@ -7,6 +7,28 @@ function getPokemon(event) {
   console.log(pokemon);
   getData(URL, pokemon);
 }
+
+const typeColors = {
+  normal: "A8A77A",
+  fire: "EE8130",
+  water: "6390F0",
+  electric: "F7D02C",
+  grass: "7AC74C",
+  ice: "96D9D6",
+  fighting: "C22E28",
+  poison: "A33EA1",
+  ground: "E2BF65",
+  flying: "A98FF3",
+  psychic: "F95587",
+  bug: "A6B91A",
+  rock: "B6A136",
+  ghost: "735797",
+  dragon: "6F35FC",
+  dark: "705746",
+  steel: "B7B7CE",
+  fairy: "D685AD",
+};
+
 async function getData(URL, pokemon) {
   document.getElementById("results").innerHTML = "";
   try {
@@ -22,15 +44,20 @@ async function getData(URL, pokemon) {
       const specificPokemon = allPokemon.filter((e) =>
         e.name.includes(pokemon)
       );
+
       const resultsContainer = document.getElementById("results");
       specificPokemon.forEach(async (element) => {
         const response = await fetch(element.url);
         const pokemonData = await response.json();
+        // const pokemonType = element.types[0];
+        // const type = getType(x);
+        document.querySelector("#pokeID");
+        // styles.background = type[typeColors];
         const sprite = pokemonData.sprites.front_default;
         resultsContainer.insertAdjacentHTML(
           `beforeend`,
           `
-          <div class="cards">
+          <div id="pokeID" class="cards">
           <h2>${element.name}</h2>
           <img src="${sprite}" alt="${element.name}">
           </div>
@@ -45,9 +72,11 @@ async function getData(URL, pokemon) {
       "Sorry I couldn't find that one";
   }
 }
+
 const DOMSelectors = {
   button: document.getElementById("btn"),
 };
+
 document.getElementById("search-form").addEventListener("submit", getPokemon);
 // DOMSelectors.button.addEventListener("click", getData(URL));
 // document.getElementById("search-form").addEventListener("submit");
