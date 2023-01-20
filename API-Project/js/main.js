@@ -46,23 +46,29 @@ async function getData(URL, pokemon) {
       );
 
       const resultsContainer = document.getElementById("results");
+      let i = 0;
       specificPokemon.forEach(async (element) => {
         const response = await fetch(element.url);
         const pokemonData = await response.json();
-        // const pokemonType = element.types[0];
-        // const type = getType(x);
-        document.querySelector("#pokeID");
-        // styles.background = type[typeColors];
+        const pokemonType = pokemonData.types[0].type.name;
+        console.log(pokemonType);
+
         const sprite = pokemonData.sprites.front_default;
+        const pokeID = i;
         resultsContainer.insertAdjacentHTML(
           `beforeend`,
           `
-          <div id="pokeID" class="cards">
+          <div id="${pokeID}" class="cards">
           <h2>${element.name}</h2>
           <img src="${sprite}" alt="${element.name}">
           </div>
-        `
+          `
         );
+        // const createdCard = document.querySelector(`#${pokeID}`);
+        const createdCard = document.getElementById(pokeID);
+        createdCard.style.backgroundColor = "#" + typeColors[pokemonType];
+        // styles.background = type[typeColors];
+        i++;
       });
       console.log(specificPokemon);
     }
