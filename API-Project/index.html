@@ -9,25 +9,30 @@
   </head>
   <body>
     <div id="app"></div>
-    <h1>Pokémon Generator</h1>
-    <div class="black-bar">
-      <div class="white-circle">
-        <div class="black-border"></div>
+    <header>
+      <h1>Pokémon Generator</h1>
+      <div class="black-bar">
+        <div class="white-circle">
+          <div class="black-border"></div>
+        </div>
       </div>
-    </div>
-    <form id="search-form">
-      <div id="search-box">
-        <input class="search-input"
-        type="search"
-        id="pokemon-search"
-        placeholder="Search for Pokémon…" />
-        <button type="submit" id="btn">Search</button>
-      </div>
-      <div id="results"></div>
-      <div id="error"></div>
-      <div id="api-response"></div>
-      <img src="" alt="">
-    </form>
+    </header>
+    <main>
+      <form id="search-form">
+        <div id="search-box">
+          <label for="pokemon-search">
+          <input class="search-input"
+          type="search"
+          id="pokemon-search"
+          placeholder="Search for Pokémon…" />
+          <button type="submit" id="btn">Search</button>
+        </div>
+        <div id="results"></div>
+        <div id="error"></div>
+        <div id="api-response"></div>
+        <img src="" alt="">
+      </form>
+    </main>
     <script type="module" src="js/main.js"></script>
   </body>
   </html>
