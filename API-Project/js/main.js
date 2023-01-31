@@ -31,6 +31,7 @@ const typeColors = {
 
 async function getData(URL, pokemon) {
   document.getElementById("results").innerHTML = "";
+  document.getElementById("error").innerHTML = "";
   try {
     const response = await fetch(URL);
     console.log(response.status);
