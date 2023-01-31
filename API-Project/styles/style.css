@@ -78,3 +78,7 @@ img {
   align-items: center;
   width: 200px;
 }
+
+#error {
+  padding-top: 15px;
+}

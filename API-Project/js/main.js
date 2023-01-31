@@ -33,18 +33,22 @@ async function getData(URL, pokemon) {
   document.getElementById("results").innerHTML = "";
   try {
     const response = await fetch(URL);
+    console.log(response.status);
+    const data = await response.json();
+    console.log(data);
     if (response.status < 200 || response.status > 299) {
       console.log(response.status);
-      throw error(response);
+      throw new Error(response);
     } else {
-      const data = await response.json();
       console.log(data);
       let allPokemon = data.results;
 
       const specificPokemon = allPokemon.filter((e) =>
         e.name.includes(pokemon)
       );
-
+      if (specificPokemon.length === 0) {
+        throw new Error("no pokémon");
+      }
       const resultsContainer = document.getElementById("results");
       let i = 0;
       specificPokemon.forEach(async (element) => {
@@ -74,8 +78,7 @@ async function getData(URL, pokemon) {
     }
   } catch (error) {
     console.log(error);
-    document.getElementById("error").textContent =
-      "Sorry I couldn't find that one";
+    document.getElementById("error").textContent = "no pokémon found";
   }
 }
 
