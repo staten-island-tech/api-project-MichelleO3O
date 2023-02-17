@@ -88,5 +88,6 @@ const DOMSelectors = {
 };
 
 document.getElementById("search-form").addEventListener("submit", getPokemon);
+getData(URL, "");
 // DOMSelectors.button.addEventListener("click", getData(URL));
 // document.getElementById("search-form").addEventListener("submit");
